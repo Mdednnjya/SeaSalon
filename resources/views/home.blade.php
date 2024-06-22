@@ -132,8 +132,29 @@
             </div>
         </div>
 
-        <div class="justify-content-center">
-            <a href="{{ route('reviews.create') }}" class="btn btn-primary">Create a Review</a>
+        <div class="row" style="font-family: 'Scheherazade New'; font-size: 36px; color: #15354F; text-align: center;">
+            <h2>Customer Reviews</h2>
+        </div>
+        <div class="row justify-content-center mt-4" id="Reviews">
+            @if (count($reviews) > 0)
+                @foreach ($reviews as $review)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $review['customerName'] }} - {{ $review['starRating'] }} Stars</h5>
+                                <p class="card-text">{{ $review['comment'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <p>No reviews yet.</p>
+            @endif
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-8 text-center">
+                <a href="{{ route('reviews.list') }}" class="btn btn-primary">View more</a>
+            </div>
         </div>
 
         <div id="contact" class="row mb-2 py-5 mx-0" style="height: 50vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">

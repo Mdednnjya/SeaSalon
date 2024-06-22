@@ -1,25 +1,34 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container" style="height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-        <h2>Customer Reviews</h2>
+    <div class="container" style="min-height: 100vh; padding-top: 50px; padding-bottom: 50px;">
+        <h2 class="mb-4">Customer Reviews</h2>
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
         @if (count($reviews) > 0)
-            <ul class="list-group">
+            <div class="row">
                 @foreach ($reviews as $review)
-                    <li class="list-group-item">
-                        <h5>{{ $review['customerName'] }} - {{ $review['starRating'] }} Stars</h5>
-                        <p>{{ $review['comment'] }}</p>
-                    </li>
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $review['customerName'] }} - {{ $review['starRating'] }} Stars</h5>
+                                <p class="card-text">{{ $review['comment'] }}</p>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-            </ul>
+            </div>
+            <div class="d-flex justify-content-center">
+                {{ $reviews->links() }}
+            </div>
         @else
             <p>No reviews yet.</p>
         @endif
-        <a href="{{ route('reviews.create') }}" class="btn btn-primary mt-3">Add a Review</a>
+        <div class="mt-4">
+            <a href="{{ route('reviews.create') }}" class="btn btn-primary">Add a Review</a>
+        </div>
     </div>
 @endsection
