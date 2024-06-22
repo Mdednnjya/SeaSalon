@@ -132,6 +132,10 @@
             </div>
         </div>
 
+        <div class="justify-content-center">
+            <a href="{{ route('reviews.create') }}" class="btn btn-primary">Create a Review</a>
+        </div>
+
         <div id="contact" class="row mb-2 py-5 mx-0" style="height: 50vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
             <div class="col-12 text-center">
                 <h2 style="font-family: 'Scheherazade New'; font-size: 36px; color: #15354F">CONTACT US</h2>
