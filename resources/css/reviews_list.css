@@ -1,0 +1,68 @@
+.profile-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.review-customer-name {
+    font-family: 'Lato';
+    color: #15354F;
+    font-size: 15px;
+}
+
+.star-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.star-rating {
+    font-family: 'Sen';
+    margin-left: 4px;
+}
+
+.review-comment {
+    font-family: 'Sen';
+    font-size: 13px;
+    color: #040726;
+}
+
+.btn-add-review {
+    font-family: 'Sen';
+    background-color: #15354F;
+    color: white;
+}
+
+.btn-add-review:hover {
+    background-color: #15354F;
+    color: white;
+    transition: none;
+}
+
+
+.section-title {
+    text-align: start;
+    font-family: 'Scheherazade New', serif;
+    font-size: 40px;
+    color: #15354F;
+}
+
+.pagination {
+    font-family: 'Sen', sans-serif;
+}
+
+.page-link {
+    color: #15354F;
+    background-color: #ffffff;
+    border-color: #15354F;
+}
+
+.page-item.active .page-link {
+    background-color: #15354F;
+    border-color: #15354F;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #ffffff;
+    border-color: #dee2e6;
+}

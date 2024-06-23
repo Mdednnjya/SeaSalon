@@ -1,0 +1,18 @@
+body {
+    padding-top: 120px;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+    height: 120px;
+}
+
+.btn-primary {
+    background-color: #15354F;
+    color: white;
+    font-family: 'Sen', sans-serif;
+}
+
+.container-min-height {
+    min-height: 100vh;
+}
