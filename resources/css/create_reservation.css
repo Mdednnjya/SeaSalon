@@ -5,14 +5,13 @@
     justify-content: center;
 }
 
-.review-header {
-    text-align: center;
+.reservation-header {
     font-family: 'Scheherazade New', serif;
     font-size: 40px;
     color: #15354F;
 }
 
-.review-form {
+.reservation-form {
     font-family: 'Lato', sans-serif;
 }
 

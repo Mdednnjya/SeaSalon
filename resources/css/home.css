@@ -110,6 +110,24 @@
     color: white;
 }
 
+.view-more-btn:hover {
+    background-color: #15354F;
+    color: white;
+    transition: none;
+}
+
+.btn-book-rsv {
+    font-family: 'Sen', sans-serif;
+    background-color: #15354F;
+    color: white;
+}
+
+.btn-book-rsv:hover {
+    background-color: #15354F;
+    color: white;
+    transition: none;
+}
+
 .contact-section {
     height: 50vh;
     display: flex;
