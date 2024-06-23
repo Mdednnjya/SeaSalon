@@ -27,7 +27,8 @@ class ReviewController extends Controller
     public function list()
     {
         $reviews = session('reviews', []);
-        $reviews = $this->paginate($reviews, 5);
+        $reviews = $this->paginate($reviews, 4);
+        $reviews->withPath(route('reviews.list'));
         return view('reviews.review_list', ['reviews' => $reviews]);
     }
 
@@ -36,10 +37,16 @@ class ReviewController extends Controller
         return view('reviews.create_review');
     }
 
-    public function paginate($items, $perPage = 5, $page = null, $options = [])
+    public function paginate($items, $perPage = 4, $page = null, $options = [])
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+        return new LengthAwarePaginator(
+            $items->forPage($page, $perPage),
+            $items->count(),
+            $perPage,
+            $page,
+            $options + ['path' => request()->url()]
+        );
     }
 }

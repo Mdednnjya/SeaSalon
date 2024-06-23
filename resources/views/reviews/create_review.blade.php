@@ -1,15 +1,15 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container" style="height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-        <h2>Leave a Review</h2>
-        <form action="{{ route('reviews.store') }}" method="POST">
+    <div class="container container-min-height d-flex align-items-center justify-content-center flex-column">
+        <h2 class="text-center review-header">Leave a Review</h2>
+        <form action="{{ route('reviews.store') }}" method="POST" class="review-form">
             @csrf
-            <div class="form-group">
-                <label for="customerName">Your Name</label>
+            <div class="form-group mb-2">
+                <label for="customerName">Client Name</label>
                 <input type="text" class="form-control" id="customerName" name="customerName" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label for="starRating">Rating</label>
                 <select class="form-control" id="starRating" name="starRating" required>
                     <option value="">Select a rating</option>
@@ -18,11 +18,11 @@
                     @endfor
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label for="comment">Comment</label>
                 <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit Review</button>
+            <button type="submit" class="btn btn-submit">Submit Review</button>
         </form>
     </div>
 @endsection
