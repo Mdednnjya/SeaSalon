@@ -5,7 +5,13 @@
         <div class="row text-center mx-2 slogan" id="slogan">
             <h1 class="animated-text slogan-title">Beauty and Elegance <br> Redefined</h1>
             <h2 class="animated-text slogan-subtitle">Exceptional Styling for Your Ultimate Glamour</h2>
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8 text-center">
+                    <a href="{{ route('reservations.create') }}" class="btn btn-book-rsv">Book Now</a>
+                </div>
+            </div>
         </div>
+
 
         <div class="row">
             <h2 class="reviews-title">Services</h2>

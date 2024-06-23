@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/css/home.css',
                 'resources/css/reviews_list.css',
                 'resources/css/create_review.css',
+                'resources/css/create_reservation.css',
                 'resources/js/app.js',
             ],
             refresh: true,

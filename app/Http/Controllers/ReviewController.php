@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -11,24 +13,20 @@ class ReviewController extends Controller
 {
     public function store(Request $request)
     {
-        $review = [
-            'customerName' => $request->input('customerName'),
-            'starRating' => $request->input('starRating'),
-            'comment' => $request->input('comment'),
-        ];
+        $validatedData = $request->validate([
+            'customerName' => 'required|string|max:255',
+            'starRating' => 'required|numeric|min:0.5|max:5',
+            'comment' => 'required|string',
+        ]);
 
-        $reviews = session('reviews', []);
-        $reviews[] = $review;
-        session(['reviews' => $reviews]);
+        Review::create($validatedData);
 
         return redirect()->route('reviews.list')->with('success', 'Review submitted successfully!');
     }
 
     public function list()
     {
-        $reviews = session('reviews', []);
-        $reviews = $this->paginate($reviews, 4);
-        $reviews->withPath(route('reviews.list'));
+        $reviews = Review::orderBy('created_at', 'desc')->paginate(4);
         return view('reviews.review_list', ['reviews' => $reviews]);
     }
 
