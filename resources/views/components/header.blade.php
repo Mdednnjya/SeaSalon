@@ -20,6 +20,22 @@
                     <li class="nav-item px-2">
                         <a class="nav-link" href="#contact" >Contact Detail</a>
                     </li>
+                    @guest
+                        <li class="nav-item px-2">
+                            <a class="nav-link" href="{{ route('register') }}" >Get Started</a>
+                        </li>
+                    @endguest
+                    @auth
+                        @if(Auth::user()->role === 'admin')
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}" >Dashboard</a>
+                            </li>
+                        @else
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="{{ route('customer.dashboard') }}" >Dashboard</a>
+                            </li>
+                        @endif
+                    @endauth
                 </ul>
             </div>
         </div>

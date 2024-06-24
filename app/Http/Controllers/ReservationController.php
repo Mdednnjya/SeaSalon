@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservation;
+use App\Models\User;
+use App\Models\service;
 use App\Models\Review;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ReservationController extends Controller
 {
@@ -25,6 +29,16 @@ class ReservationController extends Controller
         Reservation::create($validatedData);
 
         return redirect()->route('home')->with('success', 'Reservation created successfully!');
+    }
+
+    public function history()
+    {
+        $customer = Auth::user();
+        $reservations = Reservation::where('user_id', $customer->id)
+            ->orderBy('appointment_time', 'desc')
+            ->get();
+
+        return view('reservations.history', compact('reservations'));
     }
 }
 

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservation;
+use App\Models\User;
+use App\Models\service;
 use App\Models\Review;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;

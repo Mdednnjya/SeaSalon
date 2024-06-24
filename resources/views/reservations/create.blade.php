@@ -18,9 +18,9 @@
                     <div class="form-group mb-2">
                         <label for="service_type">Service Type</label>
                         <select class="form-control" id="service_type" name="service_type" required>
-                            <option value="Haircuts and styling">Haircuts and styling</option>
-                            <option value="Manicure and pedicure">Manicure and pedicure</option>
-                            <option value="Facial treatments">Facial treatments</option>
+                            @foreach(\App\Models\Service::all() as $service)
+                                <option value="{{ $service->id }}">{{ $service->name }} ({{ $service->duration }} minutes)</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group mb-2">
