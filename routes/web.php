@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reservations/history', [ReservationController::class, 'history'])->name('reservations.history');
     Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
     Route::get('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+    Route::get('/reservations/{id}', [ReservationController::class, 'detail'])->name('reservations.detail');
 });
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');

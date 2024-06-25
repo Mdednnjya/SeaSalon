@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="duration">Service Duration (minutes)</label>
-                                    <input type="number" class="form-control" id="duration" name="duration" required>
+                                    <input type="number" class="form-control" id="duration" name="duration" placeholder="Enter duration in minutes (e.g., 60)" required>
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="image">Service Image</label>
@@ -88,8 +88,9 @@
             </div>
         </div>
     @else
-        <div class="alert alert-danger">
+        <div class="col-9 col-md-4 text-center container container-min-height">
             You do not have permission to access this page.
+            <a href="{{ route('home') }}" class="btn btn-book-rsv">Return to home</a>
         </div>
     @endif
 @endsection

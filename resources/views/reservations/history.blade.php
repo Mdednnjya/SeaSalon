@@ -8,12 +8,14 @@
 
                 <div class="reservation-history">
                     @if($reservations->isEmpty())
-                        <p>No reservation history.</p>
+                        <p>No reservation history yet.</p>
                     @else
-                        <ul>
+                        <ul class="list-group">
                             @foreach($reservations as $reservation)
-                                <li>
-                                    {{ $reservation->service_type }} on {{ \Carbon\Carbon::parse($reservation->appointment_time)->format('F j, Y, g:i a') }}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Reservation #{{ $reservation->id }} - {{ $reservation->service->name }}
+                                    <span>{{ $reservation->appointment_time }}</span>
+                                    <a href="{{ route('reservations.detail', $reservation->id) }}" class="btn btn-sm btn-primary">View Details</a>
                                 </li>
                             @endforeach
                         </ul>

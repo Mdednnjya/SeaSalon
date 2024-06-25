@@ -42,8 +42,9 @@
             </div>
         </div>
     @else
-        <div class="alert alert-danger">
+        <div class="col-9 col-md-4 text-center container container-min-height">
             You do not have permission to access this page.
+            <a href="{{ route('home') }}" class="btn btn-book-rsv">Return to home</a>
         </div>
     @endif
 @endsection

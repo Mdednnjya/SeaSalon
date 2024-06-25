@@ -19,16 +19,24 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:20',
-            'service_type' => 'required|in:Haircuts and styling,Manicure and pedicure,Facial treatments',
-            'appointment_time' => 'required|date|after:now',
+            'phone_number' => 'required|string|max:255',
+            'service_type' => 'required|string|max:255',
+            'appointment_time' => 'required|date',
         ]);
 
-        Reservation::create($validatedData);
+        $reservation = new Reservation;
+        $reservation->user_id = auth()->id();
+        $reservation->name = $request->name;
+        $reservation->phone_number = $request->phone_number;
+        $reservation->service_type = $request->service_type;
+        $reservation->appointment_time = $request->appointment_time;
+        $reservation->save();
 
-        return redirect()->route('home')->with('success', 'Reservation created successfully!');
+        return redirect()->route('reservations.create')
+            ->with('success', 'Reservation created successfully!')
+            ->with('reservation_id', $reservation->id);
     }
 
     public function history()
@@ -39,6 +47,12 @@ class ReservationController extends Controller
             ->get();
 
         return view('reservations.history', compact('reservations'));
+    }
+
+    public function detail($id)
+    {
+        $reservation = Reservation::with('service')->findOrFail($id);
+        return view('reservations.detail', compact('reservation'));
     }
 }
 
