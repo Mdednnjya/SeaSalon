@@ -47,4 +47,23 @@ $(document).ready(function () {
             offcanvas.hide();
         });
     });
+    document.addEventListener("DOMContentLoaded", function() {
+        var contactLink = document.getElementById('contactLink');
+
+        if (contactLink) {
+            contactLink.addEventListener('click', function(e) {
+                if (this.getAttribute('data-redirect') === 'true') {
+                    e.preventDefault();
+                    window.location.href = this.href;
+
+                    window.addEventListener('load', function() {
+                        var contactElement = document.getElementById('contact');
+                        if (contactElement) {
+                            contactElement.scrollIntoView({behavior: 'smooth'});
+                        }
+                    });
+                }
+            });
+        }
+    });
 });

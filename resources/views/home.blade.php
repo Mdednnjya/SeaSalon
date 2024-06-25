@@ -6,9 +6,15 @@
             <h1 class="animated-text slogan-title">Beauty and Elegance <br> Redefined</h1>
             <h2 class="animated-text slogan-subtitle">Exceptional Styling for Your Ultimate Glamour</h2>
             <div class="row justify-content-center mt-5">
-                <div class="col-md-8 text-center">
-                    <a href="{{ route('reservations.create') }}" class="btn btn-book-rsv">Book Now</a>
-                </div>
+                @auth
+                    <div class="col-md-8 text-center">
+                        <a href="{{ route('reservations.create') }}" class="btn btn-book-rsv">Book Now</a>
+                    </div>
+                @else
+                    <div class="col-md-8 text-center">
+                        <a href="{{ route('login') }}" class="btn btn-book-rsv">Login to Book</a>
+                    </div>
+                @endauth
             </div>
         </div>
 
@@ -19,80 +25,45 @@
         <div class="row section-subtitle">
             <p>Treat yourself to the Ultimate Indulgence and Unleash Your Inner Beauty at SEA Salon.</p>
         </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 text-center">
+                <a href="{{ route('services.index') }}" class="btn btn-primary">View All Services</a>
+            </div>
+        </div>
 
         <div class="row justify-content-center mt-4" id="Services">
             <div class="d-none d-xxl-flex justify-content-center mx-0">
-                <div class="card pt-2 m-4 service-card">
-                    <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('images/services/service-1.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title service-card-title">Haircuts and Styling</h5>
-                        <p class="card-text mb-5 service-card-text">Achieve your perfect look with precision cuts and creative styles from our expert stylists.</p>
-                        <div class="text-center">
-                            <a href="#" class="service-card-link">learn more></a>
+                @foreach($services->take(3) as $service)
+                    <div class="card pt-2 m-4 service-card">
+                        <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->name }}">
+                        <div class="card-body">
+                            <h5 class="card-title service-card-title">{{ $service->name }}</h5>
+                            <p class="card-text mb-5 service-card-text">{{ Str::limit($service->description, 100) }}</p>
+                            <div class="text-center">
+                                <a href="{{ route('services.show', $service) }}" class="service-card-link">learn more></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card pt-2 m-4 service-card">
-                    <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('images/services/service-2.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title service-card-title">Manicure and Pedicure</h5>
-                        <p class="card-text mb-5 service-card-text">Indulge in a soothing manicure and pedicure for beautifully polished nails and soft, rejuvenated skin.</p>
-                        <div class="text-center">
-                            <a href="#" class="service-card-link">learn more></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card pt-2 m-4 service-card">
-                    <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('images/services/service-3.png') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title service-card-title">Facial Treatments</h5>
-                        <p class="card-text mb-5 service-card-text">Refresh your complexion with our revitalizing facials, designed to enhance your natural glow.</p>
-                        <div class="text-center">
-                            <a href="#" class="service-card-link">learn more></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="d-xxl-none">
                 <div id="serviceCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card pt-2 m-4 mx-auto service-card">
-                                <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('images/services/service-1.png') }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title service-card-title">Haircuts and Styling</h5>
-                                    <p class="card-text mb-5 service-card-text">Achieve your perfect look with precision cuts and creative styles from our expert stylists.</p>
-                                    <div class="text-center">
-                                        <a href="#" class="service-card-link">learn more></a>
+                        @foreach($services->take(3) as $index => $service)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                <div class="card pt-2 m-4 mx-auto service-card">
+                                    <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->name }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title service-card-title">{{ $service->name }}</h5>
+                                        <p class="card-text mb-5 service-card-text">{{ Str::limit($service->description, 100) }}</p>
+                                        <div class="text-center">
+                                            <a href="{{ route('services.show', $service) }}" class="service-card-link">learn more></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card pt-2 m-4 mx-auto service-card">
-                                <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('images/services/service-2.png') }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title service-card-title">Manicure and Pedicure</h5>
-                                    <p class="card-text mb-5 service-card-text">Indulge in a soothing manicure and pedicure for beautifully polished nails and soft, rejuvenated skin.</p>
-                                    <div class="text-center">
-                                        <a href="#" class="service-card-link">learn more></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card pt-2 m-4 mx-auto service-card">
-                                <img class="card-img-top p-3 mb-4 rounded-5" src="{{ asset('images/services/service-3.png') }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title service-card-title">Facial Treatments</h5>
-                                    <p class="card-text mb-5 service-card-text">Refresh your complexion with our revitalizing facials, designed to enhance your natural glow.</p>
-                                    <div class="text-center">
-                                        <a href="#" class="service-card-link">learn more></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -16,3 +16,21 @@ body {
 .container-min-height {
     min-height: 100vh;
 }
+
+.container-feedback {
+    min-height: 80vh;
+}
+
+.alert {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.auth-header {
+    font-family: 'Scheherazade New', serif;
+    font-size: 40px;
+    color: #15354F;
+}
