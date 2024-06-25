@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
     Route::get('/reservations/history', [ReservationController::class, 'history'])->name('reservations.history');
     Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+    Route::get('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 });
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
@@ -26,10 +27,12 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::post('/admin/add-service', [AdminDashboardController::class, 'addService'])->name('admin.addService');
+    Route::get('/admin/add-service', [AdminDashboardController::class, 'addService'])->name('admin.addService');
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
@@ -39,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/{service:name}', [ServiceController::class, 'show'])->name('services.show');
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/services/create', [ServiceController::class, 'store'])->name('services.create');
     Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
     Route::get('/services/{service}/edit', [ServiceController::class, 'edit'])->name('services.edit');
     Route::put('/services/{service}', [ServiceController::class, 'update'])->name('services.update');

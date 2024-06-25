@@ -15,10 +15,18 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#Services" >Services</a>
+                        @if(request()->routeIs('home'))
+                            <a class="nav-link" href="#Services">Services</a>
+                        @else
+                            <a class="nav-link" href="{{ route('services.index') }}">Services</a>
+                        @endif
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#contact" >Contact Detail</a>
+                        @if(request()->routeIs('home') || request()->routeIs('services.index'))
+                            <a id="contactLink" class="nav-link" href="#contact">Contact Detail</a>
+                        @else
+                            <a id="contactLink" class="nav-link" href="{{ route('home') }}#contact" data-redirect="true">Contact Detail</a>
+                        @endif
                     </li>
                     @guest
                         <li class="nav-item px-2">

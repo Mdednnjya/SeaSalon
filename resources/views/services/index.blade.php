@@ -17,5 +17,11 @@
                 </div>
             @endforeach
         </div>
+        <div id="contact" class="row mb-2 py-5 mx-0 contact-section">
+            <div class="col-12 text-center">
+                <h2 class="contact-title">CONTACT US</h2>
+                <p class="contact-info">08123456789 (Thomas) / 08164829372 (Sekar)</p>
+            </div>
+        </div>
     </div>
 @endsection

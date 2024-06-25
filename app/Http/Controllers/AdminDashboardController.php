@@ -36,6 +36,6 @@ class AdminDashboardController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Service added successfully');
+        return redirect()->route('admin.show')->with('success', 'Service added successfully');
     }
 }
