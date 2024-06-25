@@ -4,12 +4,13 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h2 class="reservation-header text-center">Register</h2>
+                <h2 class="auth-header text-center">Register</h2>
                 <form action="{{ route('register') }}" method="POST" class="registration-form">
                     @csrf
                     <div class="form-group mb-2">
                         <label for="full_name">Full Name</label>
-                        <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name') }}" required>
+                        <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name') }}" pattern="[A-Za-z\s]+" required>
+                        <small class="form-text text-muted">Note: enter only letters and spaces.</small>
                         @error('full_name')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -23,7 +24,8 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="phone_number">Phone Number</label>
-                        <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" required>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" pattern="[0-9]+" required>
+                        <small class="form-text text-muted">Note: enter only numbers.</small>
                         @error('phone_number')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror

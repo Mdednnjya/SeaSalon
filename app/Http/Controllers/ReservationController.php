@@ -42,7 +42,8 @@ class ReservationController extends Controller
     public function history()
     {
         $customer = Auth::user();
-        $reservations = Reservation::where('user_id', $customer->id)
+        $reservations = Reservation::with('service')
+            ->where('user_id', $customer->id)
             ->orderBy('appointment_time', 'desc')
             ->get();
 

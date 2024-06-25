@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
+    <div class="container container-min-height">
         <h2>Our Services</h2>
         <div class="row">
             @foreach($services as $service)

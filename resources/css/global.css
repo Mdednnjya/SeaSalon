@@ -28,3 +28,9 @@ body {
     justify-content: center;
     margin: 0;
 }
+
+.auth-header {
+    font-family: 'Scheherazade New', serif;
+    font-size: 40px;
+    color: #15354F;
+}

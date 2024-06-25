@@ -4,7 +4,7 @@
     @if(session('success'))
         <div class="col-9 col-md-4 text-center container container-min-height">
             {{ session('success') }}
-            <a href="{{ route('reservations.history') }}" class="btn btn-primary">See Details</a>
+            <a href="{{ route('reservations.detail', session('reservation_id')) }}" class="btn btn-primary">See Details</a>
         </div>
     @else
         <div class="container container-min-height">

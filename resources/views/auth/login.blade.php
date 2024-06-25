@@ -4,7 +4,7 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h2 class="login-header text-center">Login</h2>
+                <h2 class="auth-header text-center">Login</h2>
                 <form action="{{ route('login') }}" method="POST" class="login-form">
                     @csrf
                     <div class="form-group mb-2">
@@ -30,18 +30,6 @@
                 <div class="mt-3 text-center">
                     <a href="{{ route('register') }}">New user? Register here</a>
                 </div>
-                @if ($errors->has('email') || $errors->has('password'))
-                    <div class="alert alert-danger mt-3">
-                        <ul>
-                            @foreach ($errors->get('email') as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                            @foreach ($errors->get('password') as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
             </div>
         </div>
     </div>

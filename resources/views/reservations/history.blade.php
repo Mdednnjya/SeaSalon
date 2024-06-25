@@ -13,9 +13,11 @@
                         <ul class="list-group">
                             @foreach($reservations as $reservation)
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Reservation #{{ $reservation->id }} - {{ $reservation->service->name }}
+                                    Reservation #{{ $reservation->id }} - {{ $reservation->service ? $reservation->service->name : 'service deleted' }}
                                     <span>{{ $reservation->appointment_time }}</span>
-                                    <a href="{{ route('reservations.detail', $reservation->id) }}" class="btn btn-sm btn-primary">View Details</a>
+                                    @if($reservation->service)
+                                        <a href="{{ route('reservations.detail', $reservation->id) }}" class="btn btn-sm btn-primary">View Details</a>
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>
