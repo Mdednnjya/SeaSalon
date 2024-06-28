@@ -67,3 +67,28 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function() {
+    $('#branch_id').change(function() {
+        console.log('Branch changed to: ' + $(this).val());
+        var branchId = $(this).val();
+        if(branchId) {
+            $.ajax({
+                url: '/get-branch-services/' + branchId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    $('#service_id').empty();
+                    $.each(data, function(key, value) {
+                        $('#service_id').append('<option value="'+ key +'">'+ value +'</option>');
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error: " + status + " " + error);
+                }
+            });
+        } else {
+            $('#service_id').empty();
+        }
+    });
+});

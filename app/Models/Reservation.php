@@ -7,18 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'user_id',
         'name',
         'phone_number',
-        'service_type',
+        'branch_id',
+        'service_id',
         'appointment_time',
     ];
 
     public function service()
     {
-        return $this->belongsTo(Service::class, 'service_type', 'id');
+        return $this->belongsTo(Service::class);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
     }
 }
