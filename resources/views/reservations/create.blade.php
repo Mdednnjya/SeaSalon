@@ -55,36 +55,4 @@
             </div>
         </div>
     @endif
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById('branch_id').addEventListener('change', function() {
-                    var branchId = this.value;
-                    if(branchId) {
-                        fetch('/get-branch-services/' + branchId)
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Network response was not ok');
-                                }
-                                return response.json();
-                            })
-                            .then(data => {
-                                var serviceSelect = document.getElementById('service_id');
-                                serviceSelect.innerHTML = '';
-                                for(var key in data) {
-                                    var option = document.createElement('option');
-                                    option.value = key;
-                                    option.textContent = data[key];
-                                    serviceSelect.appendChild(option);
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error:', error);
-                                alert('An error occurred while fetching services. Please try again.');
-                            });
-                    } else {
-                        document.getElementById('service_id').innerHTML = '';
-                    }
-                });
-            });
-        </script>
 @endsection

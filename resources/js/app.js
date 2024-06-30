@@ -1,4 +1,6 @@
 import './bootstrap';
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 
 $(document).ready(function () {
     var servicesCarousel = new bootstrap.Carousel(document.getElementById('servicesCarousel'), {
@@ -92,3 +94,4 @@ $(document).ready(function() {
         }
     });
 });
+
