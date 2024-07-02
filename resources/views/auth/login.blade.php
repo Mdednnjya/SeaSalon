@@ -4,7 +4,7 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h2 class="auth-header text-center">Login</h2>
+                <h2 class="primary-header text-center">Login</h2>
                 <form action="{{ route('login') }}" method="POST" class="login-form">
                     @csrf
                     <div class="form-group mb-2">
@@ -21,14 +21,14 @@
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="form-check mb-3">
+                    <div class="form-check mb-5">
                         <input type="checkbox" class="form-check-input" id="remember" name="remember">
                         <label class="form-check-label" for="remember">Remember me</label>
                     </div>
-                    <button type="submit" class="btn btn-submit">Login</button>
+                    <button type="submit" class="btn btn-standard">Login</button>
                 </form>
-                <div class="mt-3 text-center">
-                    <a href="{{ route('register') }}">New user? Register here</a>
+                <div class="col-12 mt-3 auth-text-secondary text-center">
+                    <p>Don't have an account? <a class="auth-text-primary" href="{{ route('register') }}">Sign up</a></p>
                 </div>
             </div>
         </div>

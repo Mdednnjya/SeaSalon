@@ -22,7 +22,7 @@
                 <label for="image">Service Image</label>
                 <input type="file" class="form-control" id="image" name="image">
             </div>
-            <button type="submit" class="btn btn-primary">Update Service</button>
+            <button type="submit" class="btn btn-standard">Update Service</button>
         </form>
     </div>
 @endsection

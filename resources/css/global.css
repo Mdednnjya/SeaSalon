@@ -7,12 +7,6 @@ body {
     height: 120px;
 }
 
-.btn-primary {
-    background-color: #15354F;
-    color: white;
-    font-family: 'Sen', sans-serif;
-}
-
 .container-min-height {
     min-height: 100vh;
 }
@@ -22,15 +16,125 @@ body {
 }
 
 .alert {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
-.auth-header {
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.alert li {
+    list-style-type: disc;
+}
+
+.primary-header {
     font-family: 'Scheherazade New', serif;
     font-size: 40px;
     color: #15354F;
 }
+
+@media (max-width: 576px) {
+    #brand-name {
+        display: none;
+    }
+}
+
+.btn-standard {
+    font-family: 'Sen', sans-serif;
+    background-color: #15354F;
+    color: white;
+}
+
+.btn-standard:hover {
+    background-color: #25425A;
+    color: white;
+    transition: none;
+}
+
+.btn-get-started {
+    font-family: 'Sen', sans-serif;
+    background-color: #15354F;
+    color: white;
+    margin-top: 7px;
+}
+
+.btn-get-started:hover {
+    background-color: #25425A;
+    color: white;
+    transition: none;
+}
+
+.btn-secondary {
+    font-family: 'Sen', sans-serif;
+    background-color: #15354F;
+    color: white;
+}
+
+.btn-danger {
+    font-family: 'Sen', sans-serif;
+    background-color: #F6D4D4;
+    color: #f50d0d;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: rgba(246, 212, 212, 0.75);
+    color: #f50d0d;
+    transition: none;
+}
+
+.card-img-custom {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-img-service {
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-index-card {
+    background-color: #FBFBFB;
+    width: 22rem;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.branch-card {
+    border-left: 5px solid #15354F;
+    transition: all 0.3s ease;
+}
+.branch-card:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.auth-text-primary {
+    text-decoration: none;
+    color: #15354F;
+    font-family: 'Sen';
+    font-weight: bold;
+}
+
+.auth-text-secondary {
+    color: #777777;
+    font-family: 'Lato';
+}
+

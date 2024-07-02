@@ -4,7 +4,7 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h2 class="auth-header text-center">Register</h2>
+                <h2 class="primary-header text-center">Register</h2>
                 <form action="{{ route('register') }}" method="POST" class="registration-form">
                     @csrf
                     <div class="form-group mb-2">
@@ -44,10 +44,10 @@
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-submit">Register</button>
+                    <button type="submit" class="btn btn-standard">Register</button>
                 </form>
-                <div class="mt-3 text-center">
-                    <a href="{{ route('login') }}">login</a>
+                <div class="col-12 mt-3 auth-text auth-text-secondary text-center">
+                    <p>Already have an account? <a class="auth-text-primary" href="{{ route('login') }}">log in</a></p>
                 </div>
             </div>
         </div>

@@ -15,4 +15,9 @@ class Service extends Model
         'duration',
         'image'
     ];
+
+    public function branches()
+    {
+        return $this->belongsToMany(Branch::class, 'branch_service');
+    }
 }

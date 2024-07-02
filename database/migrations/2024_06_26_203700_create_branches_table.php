@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('branches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone_number');
-            $table->string('service_type');
-            $table->dateTime('appointment_time');
+            $table->string('location');
+            $table->time('opening_time');
+            $table->time('closing_time');
             $table->timestamps();
-        });
-
-        Schema::table('reservations', function (Blueprint $table) {
-            $table->string('service_type')->default('default_service_type')->change();
         });
     }
 
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('branches');
     }
 };
