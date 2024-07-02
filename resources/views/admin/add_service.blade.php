@@ -4,7 +4,7 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h3>Add New Service</h3>
+                <h3 class="primary-header text-center">Add New Service</h3>
                 <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-2">

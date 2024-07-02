@@ -16,14 +16,28 @@ body {
 }
 
 .alert {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
-.auth-header {
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.alert li {
+    list-style-type: disc;
+}
+
+.primary-header {
     font-family: 'Scheherazade New', serif;
     font-size: 40px;
     color: #15354F;

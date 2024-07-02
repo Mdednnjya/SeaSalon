@@ -48,9 +48,23 @@ class AdminDashboardController extends Controller
             'location' => 'required|string|max:255',
             'opening_time' => 'required|date_format:H:i',
             'closing_time' => 'required|date_format:H:i|after:opening_time',
+        ], [
+            'closing_time.after' => 'The closing time must be after the opening time.',
         ]);
 
-        Branch::create($request->all());
+        $opening_time = \Carbon\Carbon::createFromFormat('H:i', $request->opening_time);
+        $closing_time = \Carbon\Carbon::createFromFormat('H:i', $request->closing_time);
+
+        if ($closing_time->lt($opening_time)) {
+            $closing_time->addDay();
+        }
+
+        Branch::create([
+            'name' => $request->name,
+            'location' => $request->location,
+            'opening_time' => $opening_time->format('H:i'),
+            'closing_time' => $closing_time->format('H:i'),
+        ]);
 
         return redirect()->route('admin.dashboard')->with('success', 'Branch created successfully');
     }
@@ -85,17 +99,9 @@ class AdminDashboardController extends Controller
         return view('admin.add_service_to_branch', compact('branches', 'services'));
     }
 
-    public function getBranchAvailableServices(Branch $branch)
+    public function listAllBranches()
     {
-        $assignedServiceIds = $branch->services()->pluck('services.id')->toArray();
-        $availableServices = Service::whereNotIn('id', $assignedServiceIds)->get(['id', 'name']);
-
-        $servicesArray = [];
-        foreach ($availableServices as $service) {
-            $servicesArray[$service->id] = $service->name;
-        }
-
-        return response()->json($servicesArray);
+        $branches = Branch::with('services')->orderBy('created_at', 'desc')->paginate(4);
+        return view('admin.list_of_branch', compact('branches'));
     }
-
 }

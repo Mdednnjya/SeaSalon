@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container container-min-height">
-        <h2 class="text-center mb-4">Our Services</h2>
+        <h2 class="text-center primary-header mb-4">Our Services</h2>
         <div class="row justify-content-center">
             @foreach($services as $service)
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 px-4 d-flex align-items-stretch">

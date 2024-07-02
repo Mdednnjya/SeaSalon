@@ -4,10 +4,10 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h2>Add Service to Branch</h2>
+                <h2 class="primary-header text-center">Add Service to Branch</h2>
                 <form action="{{ route('admin.addServiceToBranch') }}" method="POST">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="branch_id">Branch</label>
                         <select name="branch_id" id="branch_id" class="form-control" required>
                             <option value="">Select a branch</option>
@@ -16,7 +16,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="service_id">Service</label>
                         <select name="service_id" id="service_id" class="form-control" required>
                             <option value="">Select a service</option>

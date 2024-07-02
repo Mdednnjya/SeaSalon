@@ -3,7 +3,7 @@
 @section('content')
     @if(Auth::user()->role === 'admin')
         <div class="container py-4">
-            <h1 class="text-center mb-4">Admin Dashboard</h1>
+            <h1 class="text-center mb-4 primary-header">Admin Dashboard</h1>
 
             <div class="row">
                 <div class="col-md-4 mb-4">
@@ -40,8 +40,15 @@
 
             <div class="card mt-4">
                 <div class="card-body">
-                    <h5 class="card-title">Branches and Services</h5>
-                    @foreach($branches as $branch)
+                    <div class="row mb-3 justify-content-between">
+                        <div class="col">
+                            <h5 class="card-title">Branches</h5>
+                        </div>
+                        <div class="col text-end">
+                            <a href="{{ route('admin.listAllBranches') }}" class="btn btn-secondary">View All Branches</a>
+                        </div>
+                    </div>
+                @foreach($branches->take(3) as $branch)
                         <div class="card mb-3 branch-card">
                             <div class="card-body">
                                 <h6 class="card-title">{{ $branch->name }} - {{ $branch->location }}</h6>
@@ -61,7 +68,7 @@
             </div>
 
             <div class="mt-4">
-                <a href="{{ route('admin.addServiceToBranchForm') }}" class="btn btn-secondary">Add Service to Branch</a>
+                <a href="{{ route('admin.addServiceToBranchForm') }}" class="btn me-1 btn-secondary">Add Service to Branch</a>
                 <form action="{{ route('logout') }}" method="POST" class="d-inline">
                     @csrf
                     <button type="submit" class="btn btn-danger">Logout</button>
@@ -75,5 +82,3 @@
         </div>
     @endif
 @endsection
-
-adm

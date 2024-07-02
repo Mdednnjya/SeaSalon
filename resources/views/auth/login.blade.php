@@ -4,7 +4,7 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h2 class="auth-header text-center">Login</h2>
+                <h2 class="primary-header text-center">Login</h2>
                 <form action="{{ route('login') }}" method="POST" class="login-form">
                     @csrf
                     <div class="form-group mb-2">

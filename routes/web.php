@@ -39,8 +39,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/create-branch', [AdminDashboardController::class, 'createBranch'])->name('admin.createBranch');
         Route::get('/admin/add-service-to-branch', [AdminDashboardController::class, 'addServiceToBranchForm'])->name('admin.addServiceToBranchForm');
         Route::post('/admin/add-service-to-branch', [AdminDashboardController::class, 'addServiceToBranch'])->name('admin.addServiceToBranch');
-        Route::get('/get-branch-services/{branch}', [AdminDashboardController::class, 'getBranchAvailableServices']);
-
+        Route::get('/admin/branches', [AdminDashboardController::class, 'listAllBranches'])->name('admin.listAllBranches');
     });
 });
 Route::middleware(['auth'])->group(function () {

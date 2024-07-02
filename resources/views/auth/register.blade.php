@@ -4,7 +4,7 @@
     <div class="container container-min-height">
         <div class="row justify-content-center">
             <div class="col-10 col-md-4">
-                <h2 class="auth-header text-center">Register</h2>
+                <h2 class="primary-header text-center">Register</h2>
                 <form action="{{ route('register') }}" method="POST" class="registration-form">
                     @csrf
                     <div class="form-group mb-2">
