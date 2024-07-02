@@ -31,13 +31,17 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-    Route::post('/admin/add-service', [AdminDashboardController::class, 'addService'])->name('admin.addService');
-    Route::get('/admin/add-service', [AdminDashboardController::class, 'addService'])->name('admin.addService');
-    Route::post('/admin/create-branch', [AdminDashboardController::class, 'createBranch'])->name('admin.createBranch');
-    Route::get('/admin/create-branch', [AdminDashboardController::class, 'createBranch'])->name('admin.createBranch');
-    Route::post('/admin/add-service-to-branch', [AdminDashboardController::class, 'addServiceToBranch'])->name('admin.addServiceToBranch');
-    Route::get('/get-branch-services/{branch}', [ReservationController::class, 'getBranchServices'])->name('get.branch.services');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        Route::get('/admin/add-service', [AdminDashboardController::class, 'addServiceForm'])->name('admin.addServiceForm');
+        Route::post('/admin/add-service', [AdminDashboardController::class, 'addService'])->name('admin.addService');
+        Route::get('/admin/create-branch', [AdminDashboardController::class, 'createBranchForm'])->name('admin.createBranchForm');
+        Route::post('/admin/create-branch', [AdminDashboardController::class, 'createBranch'])->name('admin.createBranch');
+        Route::get('/admin/add-service-to-branch', [AdminDashboardController::class, 'addServiceToBranchForm'])->name('admin.addServiceToBranchForm');
+        Route::post('/admin/add-service-to-branch', [AdminDashboardController::class, 'addServiceToBranch'])->name('admin.addServiceToBranch');
+        Route::get('/get-branch-services/{branch}', [AdminDashboardController::class, 'getBranchAvailableServices']);
+
+    });
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/customer/dashboard', [CustomerDashboardController::class, 'index'])->name('customer.dashboard');
@@ -54,4 +58,3 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
 });
 
-Route::get('/get-branch-services/{branch}', [ReservationController::class, 'getBranchServices'])->name('get.branch.services');

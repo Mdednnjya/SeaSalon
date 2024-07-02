@@ -67,4 +67,35 @@ class AdminDashboardController extends Controller
 
         return redirect()->route('admin.dashboard')->with('success', 'Service added to branch successfully');
     }
+
+    public function addServiceForm()
+    {
+        return view('admin.add_service');
+    }
+
+    public function createBranchForm()
+    {
+        return view('admin.create_branch');
+    }
+
+    public function addServiceToBranchForm()
+    {
+        $branches = Branch::all();
+        $services = Service::all();
+        return view('admin.add_service_to_branch', compact('branches', 'services'));
+    }
+
+    public function getBranchAvailableServices(Branch $branch)
+    {
+        $assignedServiceIds = $branch->services()->pluck('services.id')->toArray();
+        $availableServices = Service::whereNotIn('id', $assignedServiceIds)->get(['id', 'name']);
+
+        $servicesArray = [];
+        foreach ($availableServices as $service) {
+            $servicesArray[$service->id] = $service->name;
+        }
+
+        return response()->json($servicesArray);
+    }
+
 }
