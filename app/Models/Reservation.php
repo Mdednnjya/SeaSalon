@@ -14,6 +14,7 @@ class Reservation extends Model
         'branch_id',
         'service_id',
         'appointment_time',
+        'service_type',
     ];
 
     public function service()

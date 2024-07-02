@@ -19,6 +19,10 @@ return new class extends Migration
             $table->dateTime('appointment_time');
             $table->timestamps();
         });
+
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->string('service_type')->default('default_service_type')->change();
+        });
     }
 
     /**
