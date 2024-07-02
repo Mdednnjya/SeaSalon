@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/add-service-to-branch', [AdminDashboardController::class, 'addServiceToBranchForm'])->name('admin.addServiceToBranchForm');
         Route::post('/admin/add-service-to-branch', [AdminDashboardController::class, 'addServiceToBranch'])->name('admin.addServiceToBranch');
         Route::get('/admin/branches', [AdminDashboardController::class, 'listAllBranches'])->name('admin.listAllBranches');
+        Route::get('/admin/get-available-services/{branchId}', [AdminDashboardController::class, 'getAvailableServicesForBranch']);
+        Route::get('/get-branch-services/{branch}', [ReservationController::class, 'getBranchServices']);
     });
 });
 Route::middleware(['auth'])->group(function () {
@@ -56,4 +58,3 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/services/{service}', [ServiceController::class, 'update'])->name('services.update');
     Route::delete('/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
 });
-

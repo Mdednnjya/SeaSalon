@@ -104,4 +104,19 @@ class AdminDashboardController extends Controller
         $branches = Branch::with('services')->orderBy('created_at', 'desc')->paginate(4);
         return view('admin.list_of_branch', compact('branches'));
     }
+
+    public function getAvailableServicesForBranch($branchId)
+    {
+        try {
+            $branch = Branch::findOrFail($branchId);
+            $assignedServiceIds = $branch->services()->pluck('services.id')->toArray();
+            $availableServices = Service::whereNotIn('id', $assignedServiceIds)->get();
+
+            return response()->json($availableServices);
+        } catch (\Exception $e) {
+            \Log::error('Error in getAvailableServicesForBranch: ' . $e->getMessage());
+            return response()->json(['error' => 'An error occurred'], 500);
+        }
+    }
+
 }

@@ -105,7 +105,7 @@ class ReservationController extends Controller
     public function getBranchServices(Branch $branch)
     {
         try {
-            $services = $branch->services()->select('services.id', 'services.name')->pluck('name', 'id');
+            $services = $branch->services()->select('services.id', 'services.name')->get();
             \Log::info('Branch services for branch ' . $branch->id, $services->toArray());
             return response()->json($services);
         } catch (\Exception $e) {
@@ -113,6 +113,5 @@ class ReservationController extends Controller
             return response()->json(['error' => 'An error occurred'], 500);
         }
     }
+
 }
-
-

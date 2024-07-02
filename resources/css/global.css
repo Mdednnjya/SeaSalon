@@ -126,3 +126,15 @@ body {
     transform: translateY(-5px);
 }
 
+.auth-text-primary {
+    text-decoration: none;
+    color: #15354F;
+    font-family: 'Sen';
+    font-weight: bold;
+}
+
+.auth-text-secondary {
+    color: #777777;
+    font-family: 'Lato';
+}
+
