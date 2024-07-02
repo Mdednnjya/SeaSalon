@@ -37,7 +37,7 @@
             <p>No reviews yet.</p>
         @endif
         <div class="mt-4">
-            <a href="{{ route('reviews.create') }}" class="btn btn-add-review">Add a Review</a>
+            <a href="{{ route('reviews.create') }}" class="btn btn-standard">Add a Review</a>
         </div>
     </div>
 @endsection

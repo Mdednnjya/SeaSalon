@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="actions mt-3">
-                            <a href="{{ route('reservations.create') }}" class="btn btn-primary">Make a New Reservation</a>
+                            <a href="{{ route('reservations.create') }}" class="btn btn-standard">Make a New Reservation</a>
                             <a href="{{ route('reservations.history') }}" class="btn btn-secondary">View Reservation History</a>
                         </div>
                         <form action="{{ route('logout') }}" method="POST">

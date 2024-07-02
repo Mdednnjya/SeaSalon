@@ -49,7 +49,7 @@
                             <label for="appointment_time">Appointment Time</label>
                             <input type="datetime-local" class="form-control" id="appointment_time" name="appointment_time" required value="{{ old('appointment_time') }}">
                         </div>
-                        <button type="submit" class="btn btn-submit">Submit Reservation</button>
+                        <button type="submit" class="btn btn-standard">Submit Reservation</button>
                     </form>
                 </div>
             </div>

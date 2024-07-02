@@ -5,14 +5,14 @@
         <div class="row text-center mx-2 slogan" id="slogan">
             <h1 class="animated-text slogan-title">Beauty and Elegance <br> Redefined</h1>
             <h2 class="animated-text slogan-subtitle">Exceptional Styling for Your Ultimate Glamour</h2>
-            <div class="row justify-content-center mt-5">
+            <div class="animated-text row justify-content-center mt-5">
                 @auth
                     <div class="col-md-8 text-center">
-                        <a href="{{ route('reservations.create') }}" class="btn btn-book-rsv">Book Now</a>
+                        <a href="{{ route('reservations.create') }}" class="btn btn-standard">Book Now</a>
                     </div>
                 @else
                     <div class="col-md-8 text-center">
-                        <a href="{{ route('login') }}" class="btn btn-book-rsv">Login to Book</a>
+                        <a href="{{ route('login') }}" class="btn btn-standard">Login to Book</a>
                     </div>
                 @endauth
             </div>
@@ -27,7 +27,7 @@
         </div>
         <div class="row justify-content-center mt-5">
             <div class="col-md-8 text-center">
-                <a href="{{ route('services.index') }}" class="btn btn-primary">View All Services</a>
+                <a href="{{ route('services.index') }}" class="btn btn-standard">View All Services</a>
             </div>
         </div>
 
@@ -141,7 +141,7 @@
         </div>
         <div class="row justify-content-center mt-5">
             <div class="col-md-8 text-center">
-                <a href="{{ route('reviews.list') }}" class="btn view-more-btn">View more</a>
+                <a href="{{ route('reviews.list') }}" class="btn btn-standard">View more</a>
             </div>
         </div>
 

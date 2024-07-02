@@ -116,15 +116,27 @@
     transition: none;
 }
 
-.btn-book-rsv {
+.btn-standard {
     font-family: 'Sen', sans-serif;
     background-color: #15354F;
     color: white;
 }
 
-.btn-book-rsv:hover {
-    background-color: #15354F;
+.btn-standard:hover {
+    background-color: #25425A;
     color: white;
+    transition: none;
+}
+
+.btn-secondary {
+    font-family: 'Sen', sans-serif;
+    background-color: white;
+    color: #15354F;
+}
+
+.btn-secondary:hover {
+    background-color: #eeeeee;
+    color: #15354F;
     transition: none;
 }
 

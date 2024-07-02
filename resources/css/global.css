@@ -7,12 +7,6 @@ body {
     height: 120px;
 }
 
-.btn-primary {
-    background-color: #15354F;
-    color: white;
-    font-family: 'Sen', sans-serif;
-}
-
 .container-min-height {
     min-height: 100vh;
 }
@@ -33,4 +27,54 @@ body {
     font-family: 'Scheherazade New', serif;
     font-size: 40px;
     color: #15354F;
+}
+
+@media (max-width: 576px) {
+    #brand-name {
+        display: none;
+    }
+}
+
+.btn-standard {
+    font-family: 'Sen', sans-serif;
+    background-color: #15354F;
+    color: white;
+}
+
+.btn-standard:hover {
+    background-color: #25425A;
+    color: white;
+    transition: none;
+}
+
+.btn-get-started {
+    font-family: 'Sen', sans-serif;
+    background-color: #15354F;
+    color: white;
+    margin-top: 7px;
+}
+
+.btn-get-started:hover {
+    background-color: #25425A;
+    color: white;
+    transition: none;
+}
+
+.btn-secondary {
+    font-family: 'Sen', sans-serif;
+    background-color: #15354F;
+    color: white;
+}
+
+.btn-danger {
+    font-family: 'Sen', sans-serif;
+    background-color: #F6D4D4;
+    color: #f50d0d;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: rgba(246, 212, 212, 0.75);
+    color: #f50d0d;
+    transition: none;
 }

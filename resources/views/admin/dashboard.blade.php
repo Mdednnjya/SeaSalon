@@ -35,7 +35,7 @@
                                     <label for="image">Service Image</label>
                                     <input type="file" class="form-control" id="image" name="image" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Add Service</button>
+                                <button type="submit" class="btn btn-standard">Add Service</button>
                             </form>
                         </div>
 
@@ -91,7 +91,7 @@
                                 <label for="closing_time">Closing Time</label>
                                 <input type="time" name="closing_time" id="closing_time" class="form-control" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Create Branch</button>
+                            <button type="submit" class="btn btn-standard">Create Branch</button>
                         </form>
 
                         <h2>Add Service to Branch</h2>
@@ -113,7 +113,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Add Service to Branch</button>
+                            <button type="submit" class="btn btn-standard">Add Service to Branch</button>
                         </form>
 
                         <div class="admin-navigation">
@@ -134,7 +134,7 @@
     @else
         <div class="col-9 col-md-4 text-center container container-min-height">
             You do not have permission to access this page.
-            <a href="{{ route('home') }}" class="btn btn-book-rsv">Return to home</a>
+            <a href="{{ route('home') }}" class="btn btn-standard">Return to home</a>
         </div>
     @endif
 @endsection

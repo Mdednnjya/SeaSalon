@@ -25,7 +25,7 @@
                         <input type="checkbox" class="form-check-input" id="remember" name="remember">
                         <label class="form-check-label" for="remember">Remember me</label>
                     </div>
-                    <button type="submit" class="btn btn-submit">Login</button>
+                    <button type="submit" class="btn btn-standard">Login</button>
                 </form>
                 <div class="mt-3 text-center">
                     <a href="{{ route('register') }}">New user? Register here</a>

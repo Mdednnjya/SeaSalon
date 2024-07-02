@@ -21,7 +21,7 @@
                                     <div>
                                         <span>{{ $reservation->appointment_time }}</span>
                                         @if($reservation->service)
-                                            <a href="{{ route('reservations.detail', $reservation->id) }}" class="btn btn-sm btn-primary ml-2">View Details</a>
+                                            <a href="{{ route('reservations.detail', $reservation->id) }}" class="btn btn-sm btn-get-started ml-2">View Details</a>
                                         @endif
                                     </div>
                                 </li>
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="actions mt-3">
-                    <a href="{{ route('customer.dashboard') }}" class="btn btn-primary">Back to Dashboard</a>
+                    <a href="{{ route('customer.dashboard') }}" class="btn btn-get-started">Back to Dashboard</a>
                 </div>
             </div>
         </div>

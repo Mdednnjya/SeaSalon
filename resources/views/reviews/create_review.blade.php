@@ -24,7 +24,7 @@
                         <label for="comment">Comment</label>
                         <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-submit">Submit Review</button>
+                    <button type="submit" class="btn btn-standard">Submit Review</button>
                 </form>
             </div>
         </div>

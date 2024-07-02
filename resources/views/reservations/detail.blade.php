@@ -15,7 +15,7 @@
                 <p><strong>Phone Number:</strong> {{ $reservation->phone_number }}</p>
                 <p><strong>Branch:</strong> {{ $reservation->branch->name ?? 'Unknown Branch' }}</p>
                 <p><strong>Branch Location:</strong> {{ $reservation->branch->location ?? 'Unknown Location' }}</p>
-                <a href="{{ route('reservations.history') }}" class="btn btn-primary">Back to History</a>
+                <a href="{{ route('reservations.history') }}" class="btn btn-standard">Back to History</a>
             </div>
         </div>
     </div>

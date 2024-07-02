@@ -44,7 +44,7 @@
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-submit">Register</button>
+                    <button type="submit" class="btn btn-standard">Register</button>
                 </form>
                 <div class="mt-3 text-center">
                     <a href="{{ route('login') }}">login</a>

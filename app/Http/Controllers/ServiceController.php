@@ -19,7 +19,8 @@ class ServiceController extends Controller
 
     public function show(Service $service)
     {
-        return view('services.show', compact('service'));
+        $branches = $service->branches()->distinct()->get();
+        return view('services.show', compact('service', 'branches'));
     }
 
     public function store(Request $request)
